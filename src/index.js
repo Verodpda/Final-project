@@ -62,9 +62,28 @@ h2.innerHTML = `${day} ${hour}:0${minutes}`;
       if (weatherType === "Mist") {
         weatherIcon.setAttribute("src", `images/mist.svg`)
       }
-
       }
       weatherIconChange();
+
+      function forecastDisplay(){
+        let forecastTemplate = document.querySelector("#forecast");
+        let daysForecast =["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"]
+
+        let forecastHTML = `<div class="row">`;
+        daysForecast.forEach(function(day){
+        forecastHTML = 
+        forecastHTML + `<div class="col">
+					${day}
+					<br>
+					<img src="" alt="cloudy but sunny weather" class="cloudy">
+					<br>
+					27°/11°
+				</div>`;
+        })
+        forecastHTML = forecastHTML + `</div>`;
+        forecastTemplate.innerHTML = forecastHTML;
+      }
+      forecastDisplay();
   }
    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=70a117d10548a7cde81c5d73ab55d01b&units=metric`;
    axios.get(apiUrl).then(displayCityWeather)
@@ -151,3 +170,4 @@ function fahrClick(event){
 }
 let fahrTemp = document.querySelector("#fahrenheit-click");
 fahrTemp.addEventListener("click", fahrClick)
+
