@@ -68,7 +68,6 @@ h2.innerHTML = `${day} ${hour}:0${minutes}`;
       function forecastDisplay(){
         let forecastTemplate = document.querySelector("#forecast");
         let daysForecast =["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"]
-
         let forecastHTML = `<div class="row">`;
         daysForecast.forEach(function(day){
         forecastHTML = 
@@ -84,9 +83,18 @@ h2.innerHTML = `${day} ${hour}:0${minutes}`;
         forecastTemplate.innerHTML = forecastHTML;
       }
       forecastDisplay();
+
   }
+        function displayForecast(newResponse){
+        console.log(newResponse)
+      }
+
    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=70a117d10548a7cde81c5d73ab55d01b&units=metric`;
    axios.get(apiUrl).then(displayCityWeather)
+
+   let forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=2980ff43226d67e53abfcdb6d457dcc8&units=metric`;
+   axios.get(forecastURL).then(displayForecast)
+
   }
   navigator.geolocation.getCurrentPosition(currentPosition);
 
