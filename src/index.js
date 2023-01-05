@@ -190,5 +190,44 @@ function forecastDisplay(forecastResponse){
 
   forecastHTML = forecastHTML + `</div>`;
   forecastTemplate.innerHTML = forecastHTML;
+
+  forcastImage(forecastResponse.data.daily);
+}
+
+//forecast images
+function forcastImage (imageResponse){
+      let forecastIcon = document.querySelector("#forcast-image");
+
+      imageResponse.forEach(function(imageChange){
+        console.log(imageChange.weather[0].main)
+      if (imageChange.weather[0].main === "Clouds") {
+      forecastIcon.setAttribute("src", `images/cloudy.svg`);
+      }
+      else
+      if (imageChange.weather[0].main === "Rain") {
+      forecastIcon.setAttribute("src", `images/rain.svg`);
+      }
+      else
+      if (imageChange.weather[0].main === "Clear") {
+        forecastIcon.setAttribute("src", `images/clear-day.svg`)
+      }
+      else
+      if (imageChange.weather[0].main === "Thunderstorm") {
+        forecastIcon.setAttribute("src", `images/thunderstorm.svg`)
+      }
+      else
+      if (imageChange.weather[0].main === "Drizzle") {
+        forecastIcon.setAttribute("src", `images/drizzle.svg`)
+      }
+      else
+      if (imageChange.weather[0].main === "Snow") {
+        forecastIcon.setAttribute("src", `images/snow.svg`)
+      }
+      else
+      if (imageChange.weather[0].main === "Mist") {
+        forecastIcon.setAttribute("src", `images/mist.svg`)
+      }
+      })
+      
 }
 
