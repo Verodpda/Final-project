@@ -38,31 +38,31 @@ h2.innerHTML = `${day} ${hour}:0${minutes}`;
       let weatherType = response.data.weather[0].main;
       let weatherIcon = document.querySelector("#weather-image");
       if (weatherType === "Clouds") {
-      weatherIcon.setAttribute("src", `images/cloudy.svg`);
+      weatherIcon.setAttribute("src", `images/Clouds.svg`);
       }
       else
       if (weatherType === "Rain") {
-      weatherIcon.setAttribute("src", `images/rain.svg`);
+      weatherIcon.setAttribute("src", `images/Rain.svg`);
       }
       else
       if (weatherType === "Clear") {
-        weatherIcon.setAttribute("src", `images/clear-day.svg`)
+        weatherIcon.setAttribute("src", `images/Clear.svg`)
       }
       else
       if (weatherType === "Thunderstorm") {
-        weatherIcon.setAttribute("src", `images/thunderstorm.svg`)
+        weatherIcon.setAttribute("src", `images/Thunderstorm.svg`)
       }
       else
       if (weatherType === "Drizzle") {
-        weatherIcon.setAttribute("src", `images/drizzle.svg`)
+        weatherIcon.setAttribute("src", `images/Drizzle.svg`)
       }
       else
       if (weatherType === "Snow") {
-        weatherIcon.setAttribute("src", `images/snow.svg`)
+        weatherIcon.setAttribute("src", `images/Snow.svg`)
       }
       else
       if (weatherType === "Mist") {
-        weatherIcon.setAttribute("src", `images/mist.svg`)
+        weatherIcon.setAttribute("src", `images/Mist.svg`)
       }
       }
       weatherIconChange();
@@ -100,31 +100,31 @@ h2.innerHTML = `${day} ${hour}:0${minutes}`;
       let weatherType = response.data.weather[0].main;
       let weatherIcon = document.querySelector("#weather-image");
       if (weatherType === "Clouds") {
-      weatherIcon.setAttribute("src", `images/cloudy.svg`);
+      weatherIcon.setAttribute("src", `images/Clouds.svg`);
       }
       else
       if (weatherType === "Rain") {
-      weatherIcon.setAttribute("src", `images/rain.svg`);
+      weatherIcon.setAttribute("src", `images/Rain.svg`);
       }
       else
       if (weatherType === "Clear") {
-        weatherIcon.setAttribute("src", `images/clear-day.svg`)
+        weatherIcon.setAttribute("src", `images/Clear.svg`)
       }
       else
       if (weatherType === "Thunderstorm") {
-        weatherIcon.setAttribute("src", `images/thunderstorm.svg`)
+        weatherIcon.setAttribute("src", `images/Thunderstorm.svg`)
       }
       else
       if (weatherType === "Drizzle") {
-        weatherIcon.setAttribute("src", `images/drizzle.svg`)
+        weatherIcon.setAttribute("src", `images/Drizzle.svg`)
       }
       else
       if (weatherType === "Snow") {
-        weatherIcon.setAttribute("src", `images/snow.svg`)
+        weatherIcon.setAttribute("src", `images/Snow.svg`)
       }
       else
       if (weatherType === "Mist") {
-        weatherIcon.setAttribute("src", `images/mist.svg`)
+        weatherIcon.setAttribute("src", `images/Mist.svg`)
       }
       getForcastCoords(response.data.coord)
 
@@ -173,7 +173,6 @@ function formatDayForecast(timestamp){
 function forecastDisplay(forecastResponse){
   let forecast = forecastResponse.data.daily;
   let forecastTemplate = document.querySelector("#forecast");
-  console.log(forecastResponse.data.daily);
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function(forecastDay, index){
@@ -182,7 +181,7 @@ function forecastDisplay(forecastResponse){
   forecastHTML + `<div class="col">
 			${formatDayForecast(forecastDay.dt)}
 			<br>
-			<img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" id="forcast-image">
+			<img src="images/${forecastDay.weather[0].main}.svg" alt="" id="forcast-image">
 			<br>
 			${Math.round(forecastDay.temp.max)}°/${Math.round(forecastDay.temp.min)}°
 		</div>`;
@@ -190,44 +189,7 @@ function forecastDisplay(forecastResponse){
 
   forecastHTML = forecastHTML + `</div>`;
   forecastTemplate.innerHTML = forecastHTML;
-
-  forcastImage(forecastResponse.data.daily);
 }
 
-//forecast images
-function forcastImage (imageResponse){
-      let forecastIcon = document.querySelector("#forcast-image");
 
-      imageResponse.forEach(function(imageChange){
-        console.log(imageChange.weather[0].main)
-      if (imageChange.weather[0].main === "Clouds") {
-      forecastIcon.setAttribute("src", `images/cloudy.svg`);
-      }
-      else
-      if (imageChange.weather[0].main === "Rain") {
-      forecastIcon.setAttribute("src", `images/rain.svg`);
-      }
-      else
-      if (imageChange.weather[0].main === "Clear") {
-        forecastIcon.setAttribute("src", `images/clear-day.svg`)
-      }
-      else
-      if (imageChange.weather[0].main === "Thunderstorm") {
-        forecastIcon.setAttribute("src", `images/thunderstorm.svg`)
-      }
-      else
-      if (imageChange.weather[0].main === "Drizzle") {
-        forecastIcon.setAttribute("src", `images/drizzle.svg`)
-      }
-      else
-      if (imageChange.weather[0].main === "Snow") {
-        forecastIcon.setAttribute("src", `images/snow.svg`)
-      }
-      else
-      if (imageChange.weather[0].main === "Mist") {
-        forecastIcon.setAttribute("src", `images/mist.svg`)
-      }
-      })
-      
-}
 
