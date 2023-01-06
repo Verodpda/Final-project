@@ -176,10 +176,10 @@ function forecastDisplay(forecastResponse){
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function(forecastDay, index){
-  if (index < 6){
+  if (index < 7 && index > 0){
   forecastHTML = 
   forecastHTML + `<div class="col">
-			${formatDayForecast(forecastDay.dt)}
+			<div class="forecast-days">${formatDayForecast(forecastDay.dt)}</div>
 			<br>
 			<img src="images/${forecastDay.weather[0].main}.svg" alt="" id="forcast-image">
 			<br>
