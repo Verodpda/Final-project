@@ -37,32 +37,40 @@ h2.innerHTML = `${day} ${hour}:0${minutes}`;
       function weatherIconChange(){
       let weatherType = response.data.weather[0].main;
       let weatherIcon = document.querySelector("#weather-image");
+      let backgroundColor = document.querySelector("main")
       if (weatherType === "Clouds") {
       weatherIcon.setAttribute("src", `images/Clouds.svg`);
+      backgroundColor.className = "cloud-weather app-body"
       }
       else
       if (weatherType === "Rain") {
       weatherIcon.setAttribute("src", `images/Rain.svg`);
+      backgroundColor.className = "rain-weather app-body"
       }
       else
       if (weatherType === "Clear") {
         weatherIcon.setAttribute("src", `images/Clear.svg`)
+        backgroundColor.className = "clear-weather app-body"
       }
       else
       if (weatherType === "Thunderstorm") {
         weatherIcon.setAttribute("src", `images/Thunderstorm.svg`)
+        backgroundColor.className = "thunder-weather app-body"
       }
       else
       if (weatherType === "Drizzle") {
         weatherIcon.setAttribute("src", `images/Drizzle.svg`)
+        backgroundColor.className = "drizzle-weather app-body"
       }
       else
       if (weatherType === "Snow") {
         weatherIcon.setAttribute("src", `images/Snow.svg`)
+        backgroundColor.className = "snow-weather app-body"
       }
       else
       if (weatherType === "Mist") {
         weatherIcon.setAttribute("src", `images/Mist.svg`)
+        backgroundColor.className = "mist-weather app-body"
       }
       }
       weatherIconChange();
@@ -99,32 +107,40 @@ h2.innerHTML = `${day} ${hour}:0${minutes}`;
 
       let weatherType = response.data.weather[0].main;
       let weatherIcon = document.querySelector("#weather-image");
+      let backgroundColor = document.querySelector("main")
       if (weatherType === "Clouds") {
       weatherIcon.setAttribute("src", `images/Clouds.svg`);
+      backgroundColor.className = "cloud-weather app-body"
       }
       else
       if (weatherType === "Rain") {
       weatherIcon.setAttribute("src", `images/Rain.svg`);
+      backgroundColor.className = "rain-weather app-body"
       }
       else
       if (weatherType === "Clear") {
         weatherIcon.setAttribute("src", `images/Clear.svg`)
+        backgroundColor.className = "clear-weather app-body"
       }
       else
       if (weatherType === "Thunderstorm") {
         weatherIcon.setAttribute("src", `images/Thunderstorm.svg`)
+        backgroundColor.className = "thunder-weather app-body"
       }
       else
       if (weatherType === "Drizzle") {
         weatherIcon.setAttribute("src", `images/Drizzle.svg`)
+        backgroundColor.className = "drizzle-weather app-body"
       }
       else
       if (weatherType === "Snow") {
         weatherIcon.setAttribute("src", `images/Snow.svg`)
+        backgroundColor.className = "snow-weather app-body"
       }
       else
       if (weatherType === "Mist") {
         weatherIcon.setAttribute("src", `images/Mist.svg`)
+        backgroundColor.className = "mist-weather app-body"
       }
       getForcastCoords(response.data.coord)
 
