@@ -195,7 +195,7 @@ function forecastDisplay(forecastResponse){
   if (index < 7 && index > 0){
   forecastHTML = 
   forecastHTML + `<div class="col">
-			<div class="forecast-days">${formatDayForecast(forecastDay.dt)}</div>
+			<div>${formatDayForecast(forecastDay.dt)}</div>
 			<br>
 			<img src="images/${forecastDay.weather[0].main}.svg" alt="" id="forcast-image">
 			<br>
