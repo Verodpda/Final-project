@@ -12,20 +12,20 @@
 	<div class="container">
 		<main class="app-body">
 			<form id="city-search">
-				<input type="text" placeholder="Enter a city name" id="city-input">
+				<input type="text" placeholder="Enter a city name" id="city-input" onkeyup="this.value = this.value.toLowerCase();">
 				<input type="submit" value="search" class="btn btn-primary">
 			</form>
 			<div class="row">
 				<div class="col-6">
 					<h1>
-						city name
+						Enter a city name
 					</h1>
 					<h2>
 						date time
 					</h2>
 					<br>
 					<h3>
-						<div id="weather-description" class="description-weather"> description</div>
+						<div id="weather-description" class="description-weather"> Weather description</div>
 						 Humidity: <span id="humidity"></span>
 						 <br>
 						 Wind: <span id="wind"></span>
